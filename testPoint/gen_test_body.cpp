@@ -64,6 +64,23 @@ int main()
         pointVec.push_back(temp);
     }
 
+    // Now Plot some stray points around object 1 and 2
+    std::uniform_real_distribution<double> strayX(minX, maxX);
+    std::uniform_real_distribution<double> strayY(minY, maxY);
+    std::uniform_real_distribution<double> strayZ(minZ, maxZ);i
+
+    for(int nPts = 0; nPts < strayPts; nPts++) {
+        x3Plot[nPts] = strayX(mySeed);
+        y3Plot[nPts] = strayY(mySeed);
+        z3Plot[nPts] = strayZ(mySeed);
+        double xs = x3Plot[nPts];
+        double ys = y3Plot[nPts];
+        double zs = z3Plot[nPts];
+        temp.push_back(xs);
+        temp.push_back(ys);
+        temp.push_back(zs);
+        pointVec.push_back(temp);
+    }
 
     double maxX = std::max(x1max + d2, x2max + d2);
     double minX = std::min(x1min - d2, x2min - d2);
@@ -90,23 +107,6 @@ int main()
     pls->col0(4);
     pls->string3(NPTS, x2Plot, y2Plot, z2Plot, ".");
 
-    // Now Plot some stray points around object 1 and 2
-    std::uniform_real_distribution<double> strayX(minX, maxX);
-    std::uniform_real_distribution<double> strayY(minY, maxY);
-    std::uniform_real_distribution<double> strayZ(minZ, maxZ);i
-
-    for(int nPts = 0; nPts < strayPts; nPts++) {
-        x3Plot[nPts] = strayX(mySeed);
-        y3Plot[nPts] = strayY(mySeed);
-        z3Plot[nPts] = strayZ(mySeed);
-        double xs = x3Plot[nPts];
-        double ys = y3Plot[nPts];
-        double zs = z3Plot[nPts];
-        temp.push_back(xs);
-        temp.push_back(ys);
-        temp.push_back(zs);
-        pointVec.push_back(temp);
-    }
     pls->col0(5);
     pls->string3(NPTS, x3Plot, y3Plot, z3Plot, ".");
 

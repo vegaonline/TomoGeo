@@ -24,7 +24,6 @@ std::mt19937_64 mySeed(seedRD);
 
 plstream* pls; // pointer for plplotcxx
 
-std::vector<std::vector<double>> pointVec; // store all points from all objects and stray points
 std::vector<double> temp;
 
 double rad = 6.0;
